@@ -4,16 +4,23 @@
 #include <fcntl.h>
 #include <string.h>
 #include <sys/types.h> 
-#include <sys/wait.h> 
 #include <sys/stat.h>
 
-#define MAX_LINE 80
+#define MAX_LINE 100
 
-int getInput(char input[], char history[]){
-    printf("osh>");
-    fflush(stdout);
+int main(void) {
     
-     fgets(input,MAX_LINE,stdin);
+    printf("CS 433 Programming Assignment 2");
+    printf("Authors: Christian Contreras, Eric Tyler, and Micah Johnson");
+	printf("Date: 03/08/2022");
+	printf("Course: CS433 Operating Systems");
+	printf("Description : Program to implement a priority ready queue of processes"); 
+	"==============================================================================="
+   int getInput(char input[], char history[]){
+    printf("osh>");
+    fflush(stdout); //get user input
+    
+    fgets(input,MAX_LINE,stdin);
     
     input[strlen(input)-1]='\0';
     if(strcmp(input, "!!") == 0){
@@ -22,7 +29,7 @@ int getInput(char input[], char history[]){
             strcpy(input, history);
         }
         else{
-            printf("No command in history!!!\n");
+            printf("No commands in history.\n");
             return -1;
         }
     }
@@ -34,10 +41,10 @@ int getInput(char input[], char history[]){
     return 1;
 }
 
-
+//start split
 void execArgs(char *args[], int len){
    
-    __pid_t child_pid;
+    pid_t child_pid;
     int flag=0;
     
     if(*args[len-1]=='&'){
@@ -45,9 +52,9 @@ void execArgs(char *args[], int len){
         args[len-1]=NULL;
         len--;
     }
-    child_pid=fork();
+    child_pid=fork(); //check if process is parent or child
      
-    if(child_pid == 0) {
+    if(child_pid == 0) { // if the process is a child
         if(len >= 3){
             if(strcmp(args[len - 2], ">" ) == 0){
                 args[len - 2] = NULL;
@@ -70,12 +77,12 @@ void execArgs(char *args[], int len){
         }
         
         if (execvp(args[0], args) < 0){
-            printf("\nCould not execute in command...");
+            printf("\nCould not execute command.");
         }
         exit(1);
 
     }
-    else if(child_pid > 0){ /
+    else if(child_pid > 0){
     
     if (flag==0)
     {
@@ -84,7 +91,7 @@ void execArgs(char *args[], int len){
         return;
     }else {
 
-        printf("\nCan't fork!!!");
+        printf("\nFork Failure.");
         return;
     }
 }
@@ -101,7 +108,6 @@ int parseInput(char *args[], char input[]){
     return count;
 }
 
-/
 int checkPipe(char *args[], int len){
     for(int i = 0; i < len; i++){
         if(strcmp(args[i], "|") == 0)
@@ -112,11 +118,11 @@ int checkPipe(char *args[], int len){
 
 
 void execArgsPipe(char *args[], char *argsPipe[], int flag){
-    __pid_t pid;
+    pid_t pid;
 
-    int fd[2];/
+    int fd[2];
     if(pipe(fd) < 0){
-        printf("\nCan't init pipe!!!!");
+        printf("\nPipe failure.");
         return;
     }
     
@@ -130,18 +136,21 @@ void execArgsPipe(char *args[], char *argsPipe[], int flag){
         close(fd[1]);
         
         if(execvp(args[0],args) < 0){
-            printf("\nCan't execute pipe 1...");
+            printf("\nPipe 1 Failure...");
         }
         exit(1);
-    }else if(pid >0){
-        
+
+    }
+
+    else if(pid >0){
+
         pid = fork();
         if(pid == 0){
             dup2(fd[0], STDIN_FILENO);
             close(fd[1]);
             close(fd[0]);
             if(execvp(argsPipe[0], argsPipe) < 0){
-                printf("\nCan't execute pipe 2...");
+                printf("\nPipe 2 Failuer...");
             }
             
             exit(1);
@@ -155,12 +164,12 @@ void execArgsPipe(char *args[], char *argsPipe[], int flag){
             return;
         }
         else {
-            printf("\nCan't fork!!!");
+            printf("\nFork Failure.");
             return;
         }
     }
     else{
-        printf("\nCan't fork!!!");
+        printf("\nFork Failure!!!");
         return;
     }
 }
@@ -201,8 +210,8 @@ int main(void)
     while(shouldRun) {
         char input[100];
         int len;
-        int res=getInput(input, history);
-        if( res== 1){
+        int res=getInput(input, history); //getting command input, storing in arrays
+        if( res== 1){ //if command successful
             len = parseInput(args, input);
             exec(args, len);
         }
@@ -213,3 +222,6 @@ int main(void)
     }
     return 0;
 }
+    
+        
+	
