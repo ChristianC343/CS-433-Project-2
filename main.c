@@ -199,12 +199,12 @@ int main(void)
     	int shouldRun = 1;
    	int status = 0;
 
-	printf("CS 433 Programming Assignment 2");
-    	printf("Authors: Christian Contreras, Eric Tyler, and Micah Johnson");
-   	printf("Date: 03/08/2022");
-    	printf("Course: CS433 Operating Systems");
-	printf("Description : Program to implement a priority ready queue of processes"); 
-	printf("===============================================================================");
+	printf("CS 433 Programming Assignment 2\n
+	       Authors: Christian Contreras, Eric Tyler, and Micah Johnson\n
+	       Date: 03/08/2022\n
+	       Course: CS433 Operating Systems\n
+	       Description : Program to implement a priority ready queue of processes\n
+	       ===============================================================================\n");
 
     while(shouldRun) {
         char input[100];
