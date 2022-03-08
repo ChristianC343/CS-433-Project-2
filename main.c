@@ -142,7 +142,7 @@ void execArgsPipe(char *args[], char *argsPipe[], int flag){
             close(fd[1]);
             close(fd[0]);
             if(execvp(argsPipe[0], argsPipe) < 0){
-                printf("\nPipe 2 Failuer...");
+                printf("\nPipe 2 Failure...");
             }
             
             exit(1);
@@ -161,7 +161,7 @@ void execArgsPipe(char *args[], char *argsPipe[], int flag){
         }
     }
     else{
-        printf("\nFork Failure!!!");
+        printf("\nFork Failure.");
         return;
     }
 }
