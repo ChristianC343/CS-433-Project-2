@@ -193,18 +193,18 @@ void exec(char *args[], int len){
 
 int main(void)
 {
-    char *args[MAX_LINE / 2 + 1];
-    char history[100];
-    history[0] = '\0';
-    int shouldRun = 1;
-    int status = 0;
+   	char *args[MAX_LINE / 2 + 1];
+   	char history[100];
+   	history[0] = '\0';
+    	int shouldRun = 1;
+   	int status = 0;
 
 	printf("CS 433 Programming Assignment 2");
-    printf("Authors: Christian Contreras, Eric Tyler, and Micah Johnson");
-    printf("Date: 03/08/2022");
-    printf("Course: CS433 Operating Systems");
+    	printf("Authors: Christian Contreras, Eric Tyler, and Micah Johnson");
+   	printf("Date: 03/08/2022");
+    	printf("Course: CS433 Operating Systems");
 	printf("Description : Program to implement a priority ready queue of processes"); 
-	"==============================================================================="
+	printf("===============================================================================");
 
     while(shouldRun) {
         char input[100];
