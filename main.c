@@ -203,7 +203,8 @@ int main(void)
 	       Authors: Christian Contreras, Eric Tyler, and Micah Johnson\n
 	       Date: 03/08/2022\n
 	       Course: CS433 Operating Systems\n
-	       Description : Program to implement a priority ready queue of processes\n
+	       Description : Program to serve as a shell interface that accepts user commands\n
+	       and executes each in a seperate processs.\n
 	       ===============================================================================\n");
 
     while(shouldRun) {
