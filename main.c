@@ -8,15 +8,7 @@
 
 #define MAX_LINE 100
 
-int main(void) {
-    
-    printf("CS 433 Programming Assignment 2");
-    printf("Authors: Christian Contreras, Eric Tyler, and Micah Johnson");
-	printf("Date: 03/08/2022");
-	printf("Course: CS433 Operating Systems");
-	printf("Description : Program to implement a priority ready queue of processes"); 
-	"==============================================================================="
-   int getInput(char input[], char history[]){
+int getInput(char input[], char history[]){
     printf("osh>");
     fflush(stdout); //get user input
     
@@ -41,7 +33,7 @@ int main(void) {
     return 1;
 }
 
-//start split
+
 void execArgs(char *args[], int len){
    
     pid_t child_pid;
@@ -206,6 +198,13 @@ int main(void)
     history[0] = '\0';
     int shouldRun = 1;
     int status = 0;
+
+	printf("CS 433 Programming Assignment 2");
+    printf("Authors: Christian Contreras, Eric Tyler, and Micah Johnson");
+    printf("Date: 03/08/2022");
+    printf("Course: CS433 Operating Systems");
+	printf("Description : Program to implement a priority ready queue of processes"); 
+	"==============================================================================="
 
     while(shouldRun) {
         char input[100];
