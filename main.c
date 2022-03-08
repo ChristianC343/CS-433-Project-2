@@ -199,13 +199,13 @@ int main(void)
     	int shouldRun = 1;
    	int status = 0;
 
-	printf("CS 433 Programming Assignment 2\n
-	       Authors: Christian Contreras, Eric Tyler, and Micah Johnson\n
-	       Date: 03/08/2022\n
-	       Course: CS433 Operating Systems\n
-	       Description : Program to serve as a shell interface that accepts user commands\n
-	       and executes each in a seperate processs.\n
-	       ===============================================================================\n");
+	 printf("CS 433 Programming Assignment 2\n");
+  printf("Authors: Christian Contreras, Eric Tyler, and Micah Johnson\n");
+  printf("Date: 03/08/2022\n");
+  printf("Course: CS433 Operating Systems\n");
+  printf("Description : Program to serve as a shell interface that accepts user commands\n");
+  printf("and executes each in a seperate processs.\n");
+  printf("===============================================================================\n");
 
     while(shouldRun) {
         char input[100];
